@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — pre-token protocols ranked by implied launch value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div>
+      <h1>Launch Radar</h1>
+      <p class="tag">Every protocol that records no token yet, ranked by what its launch would be worth — and how to farm it.</p>
+    </div>
+  </div>
+  <div class="stats" id="stats" aria-label="Board summary"></div>
+  <nav class="tabs" aria-label="Views">
+    <button id="tab-board" class="tab on" type="button">The board</button>
+    <button id="tab-model" class="tab" type="button">Model &amp; comparables</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-board">
+    <div class="controls" role="search">
+      <label class="ctl grow">Search
+        <input id="q" type="search" placeholder="Protocol name or slug" autocomplete="off">
+      </label>
+      <label class="ctl">Category
+        <select id="cat"></select>
+      </label>
+      <label class="ctl">Chain
+        <select id="chain"></select>
+      </label>
+      <label class="ctl">Sort by
+        <select id="sort">
+          <option value="implied">Implied value</option>
+          <option value="tvl">TVL</option>
+          <option value="growth">7d growth</option>
+          <option value="age">Track record (age)</option>
+          <option value="multiple">Category multiple</option>
+        </select>
+      </label>
+      <label class="ctl check">
+        <input id="watch" type="checkbox"> Watchlist only
+      </label>
+    </div>
+    <p class="count" id="count"></p>
+    <div class="tablewrap">
+      <table id="board">
+        <thead>
+          <tr>
+            <th class="num">#</th><th>Protocol</th><th>Category</th><th>Chains</th>
+            <th class="num">TVL</th><th class="num">7d</th><th class="num">Age</th>
+            <th class="num">Multiple</th><th class="num">Implied value</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="hint">Select any row for the protocol's detail view: its model working and its farm plan.</p>
+  </section>
+
+  <section id="view-detail" hidden>
+    <button id="back" class="back" type="button">&larr; Back to the board</button>
+    <div id="detail"></div>
+  </section>
+
+  <section id="view-model" hidden>
+    <div id="model"></div>
+  </section>
+</main>
+
+<footer>
+  <p id="source-line"></p>
+  <p>Implied values are this board's own model output, not a prediction that a token will be issued or what it would trade at. A protocol here <em>records</em> no token in the snapshot; that is DefiLlama's record, not proof none exists. Farm plans are research notes, not financial advice: every position carries the risks its plan names. Built for the make.fun token-radar-01 bounty.</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
